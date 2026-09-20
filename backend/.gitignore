@@ -1,0 +1,15 @@
+# Локальные правила бэкенда (основные — в корневом .gitignore,
+# этот файл нужен, если backend/ когда-нибудь вынесут в отдельный репозиторий)
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.db
+*.sqlite3
+uploads/*
+!uploads/.gitkeep
+.env

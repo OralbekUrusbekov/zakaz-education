@@ -1,0 +1,206 @@
+# ─────────────────────────────────────────────
+#  Tech School — корневой .gitignore
+#  Next.js (фронтенд) + FastAPI (backend/) + Docker
+# ─────────────────────────────────────────────
+
+# ── Зависимости ──────────────────────────────
+node_modules/
+.pnp
+.pnp.*
+.pnpm-store/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+jspm_packages/
+bower_components/
+web_modules/
+
+# ── Сборка Next.js ───────────────────────────
+.next/
+out/
+build/
+dist/
+next-env.d.ts
+.swc/
+.turbo/
+.vercel/
+
+# ── Переменные окружения (секреты!) ──────────
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+!.env.example
+
+# ── Кэши линтеров и сборщиков ────────────────
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+.cache/
+.parcel-cache/
+.rollup.cache/
+.rpt2_cache/
+.vite/
+
+# ── Тесты и покрытие ─────────────────────────
+coverage/
+.nyc_output/
+*.lcov
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/blob-report/
+
+# ── Логи ─────────────────────────────────────
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ─────────────────────────────────────────────
+#  Backend: Python / FastAPI
+# ─────────────────────────────────────────────
+
+# Виртуальные окружения
+.venv/
+venv/
+env/
+ENV/
+
+# Байт-код и кэши
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Пакеты и сборка Python
+*.egg
+*.egg-info/
+.eggs/
+sdist/
+wheels/
+*.whl
+share/python-wheels/
+MANIFEST
+
+# Инструменты
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ruff_cache/
+.tox/
+.nox/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.ipynb_checkpoints/
+
+# База и загруженные файлы (создаются сидом и пользователями)
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+# содержимое игнорируем, саму папку оставляем (git не умеет разыменовывать
+# исключения внутри игнорируемой директории — поэтому именно uploads/*, а не uploads/)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# ─────────────────────────────────────────────
+#  Docker и инфраструктура
+# ─────────────────────────────────────────────
+docker-compose.override.yml
+docker-compose.*.local.yml
+.docker/
+*.pid
+*.pid.lock
+*.seed
+
+# ─────────────────────────────────────────────
+#  ОС и редакторы
+# ─────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+Icon?
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+*~
+.fleet/
+.zed/
+
+# ─────────────────────────────────────────────
+#  Служебное
+# ─────────────────────────────────────────────
+
+# Временные и архивные файлы
+tmp/
+temp/
+*.tmp
+*.bak
+*.orig
+*.rej
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Ключи и сертификаты
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Остатки v0-песочницы
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+.snowflake/
+.v0-trash/
+
+# ─────────────────────────────────────────────
+#  Что НЕ игнорируем намеренно
+# ─────────────────────────────────────────────
+# public/photos, public/hero, public/clubs, public/programs, public/topics
+# и public/hero.mp4 генерируются scripts/build-photos.py и scripts/build-hero-video.py
+# из assets/source, но остаются в репозитории: без них сайт собирается без картинок,
+# а ffmpeg есть не на каждой машине. Если генерировать их в CI —
+# раскомментируйте блок ниже и добавьте шаг сборки изображений в пайплайн.
+# public/photos/
+# public/hero/
+# public/clubs/
+# public/programs/
+# public/topics/
+# public/hero.mp4

@@ -1,0 +1,9 @@
+node_modules
+.next
+.git
+backend/.venv
+backend/__pycache__
+backend/*.db
+backend/uploads
+*.log
+.env*.local
